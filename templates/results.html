@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Results for "{{ search_query }}"</h1>
+    <div class="container">
+        <div class="row">
+            {% for frame in frame_filenames %}
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="{{ url_for('static', filename='frames/' ~ frame) }}" class="card-img-top" alt="Frame {{ loop.index }}">
+                        <div class="card-body">
+                            <p class="card-text">Frame {{ loop.index }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container">
+        <a href="{{ url_for('index') }}" class="btn btn-primary mt-4">Back to Home</a>
+    </div>
+</body>
+</html>
